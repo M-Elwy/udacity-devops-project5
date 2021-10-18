@@ -21,6 +21,7 @@ jobs:
           name: copy app
           command: |
             cp -r ./www /www
+            cat /www/index.html
       - run:
           name: start server
           command: |
