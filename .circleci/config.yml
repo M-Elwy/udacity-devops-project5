@@ -9,12 +9,11 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            apk add --update npm
-            npm install -g nginx-linter
+            apk add --update curl nginx
       - run:
-          name: linting configuration
+          name: linting
           command: |
-            nginx-linter --config ./nginx.conf
+            nginx -c ./nginx.conf -t
   build:
     docker:
       - image: alpine:3.14
