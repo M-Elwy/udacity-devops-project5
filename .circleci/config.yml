@@ -10,10 +10,6 @@ jobs:
           name: install dependencies
           command: |
             apk add --update curl nginx
-      - run:
-          name: linting
-          command: |
-            nginx -c ~/repo/nginx.conf -t
   build:
     docker:
       - image: alpine:3.14
@@ -38,6 +34,10 @@ jobs:
           name: start server
           command: |
             nginx
+      - run:
+          name: linting
+          command: |
+            nginx -c ~/repo/nginx.conf -t
       - run:
           name: Run test
           command: |
