@@ -92,7 +92,7 @@ jobs:
         type: string
     steps:
       - checkout
-       - run:
+      - run:
           name: install eksctl tool
           command: |
             mkdir -p eksctl_download
