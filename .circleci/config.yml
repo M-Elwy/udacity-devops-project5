@@ -8,8 +8,8 @@ jobs:
       - checkout
       - run:
           name: install dependencies
-          command: |
-            npm install -g nginx-linter
+          - node/install:
+              nginx-linter: true
       - run:
           name: linting configuration
           command: |
@@ -53,5 +53,6 @@ workflows:
     jobs:
       - linting
       - build
+          requires: [linting]
 #      - deploy-infrastructure:
 #          requires: [build]
