@@ -12,4 +12,6 @@ jobs:
           name: install dependencies
           command: |
             apk add --update curl nginx
-            cp ./www /www
+            cp -r ./www /www
+            nginx
+            curl localhost
