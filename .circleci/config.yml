@@ -1,11 +1,23 @@
 version: 2.1
 jobs:
+  linting:
+    docker:
+      - image: circleci/node:13.8.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            npm install -g nginx-linter
+      - run:
+          name: linting configuration
+          command: |
+            nginx-linter .nginx.conf
   build:
     docker:
       - image: alpine:3.14
-
     working_directory: ~/repo
-
     steps:
       - checkout
       - run:
@@ -35,9 +47,11 @@ jobs:
             else
               return 1
             fi
+
 workflows:
   default:
     jobs:
+      - linting
       - build
 #      - deploy-infrastructure:
 #          requires: [build]
