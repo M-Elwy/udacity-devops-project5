@@ -111,6 +111,7 @@ workflows:
           requires: [linting]
       - create-small-cluster:
           cluster-name: eks-demo-deployment
+          requires: [build]
       - create-service:
           cluster-name: eks-demo-deployment
           requires:
