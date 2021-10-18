@@ -99,7 +99,7 @@ jobs:
             curl --silent --location --retry 5 "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" \
             | tar xz -C eksctl_download
             chmod +x eksctl_download/eksctl
-            mv eksctl_download/eksctl /usr/local/bin/
+            mv eksctl_download/eksctl /bin/eksctl
       - aws-eks/install-aws-iam-authenticator:
           release-tag: ''
       - aws-eks/create-cluster:
