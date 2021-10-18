@@ -39,5 +39,5 @@ workflows:
   default:
     jobs:
       - build
-      - deploy-infrastructure:
-          requires: [build]
+#      - deploy-infrastructure:
+#          requires: [build]
