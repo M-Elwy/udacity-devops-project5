@@ -50,7 +50,7 @@ workflows:
   default:
     jobs:
       - linting
-      - build
+      - build:
           requires: [linting]
 #      - deploy-infrastructure:
 #          requires: [build]
