@@ -6,10 +6,8 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          name: install dependencies
-          - node/install:
-              nginx-linter: true
+      - node/install:
+          nginx-linter: true      
       - run:
           name: linting configuration
           command: |
