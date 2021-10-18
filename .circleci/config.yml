@@ -13,7 +13,7 @@ jobs:
       - run:
           name: linting
           command: |
-            nginx -c ./nginx.conf -t
+            nginx -c ~/repo/nginx.conf -t
   build:
     docker:
       - image: alpine:3.14
