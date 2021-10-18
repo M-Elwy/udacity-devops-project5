@@ -12,6 +12,7 @@ jobs:
           name: install dependencies
           command: |
             apk add --update curl nginx
+            cp nginx.conf /etc/nginx/nginx.conf
             cp -r ./www /www
             nginx
             curl localhost
