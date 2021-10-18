@@ -14,7 +14,7 @@ jobs:
       - run:
           name: linting configuration
           command: |
-            nginx-linter .nginx.conf
+            nginx-linter --config ./nginx.conf
   build:
     docker:
       - image: alpine:3.14
