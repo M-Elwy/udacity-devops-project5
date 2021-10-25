@@ -57,6 +57,10 @@ jobs:
     executor: aws-eks/python3
     steps:
       - aws-ecr/build-and-push-image:
+          create-repo: true
+          region: AWS_DEFAULT_REGION
+          no-output-timeout: 20m
+          profile-name: admin
           repo: testblueimage
           tag: 'latest,myECRRepoTag'
 
