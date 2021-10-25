@@ -54,7 +54,6 @@ jobs:
             fi
 
   build_and_push_image:
-    executor: aws-eks/python3
     machine: true
     steps:
       - aws-ecr/build-and-push-image:
