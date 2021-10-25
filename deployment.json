@@ -24,7 +24,7 @@
              "containers":[
                 {
                    "name":"blue",
-                   "image":"elwy/testblueimage",
+                   "image":"667578938187.dkr.ecr.us-west-2.amazonaws.com/testblueimage",
                    "ports":[
                       {
                          "name":"http-server",

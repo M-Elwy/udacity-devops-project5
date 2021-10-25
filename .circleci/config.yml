@@ -132,13 +132,13 @@ workflows:
           requires: [linting]
       - build_and_push_image:
           requires: [build]
-      - create-small-cluster:
-          cluster-name: eks-demo-deployment
-          requires: [ build_and_push_image]
-      - create-service:
-          cluster-name: eks-demo-deployment
-          requires:
-            - create-small-cluster
+#      - create-small-cluster:
+#          cluster-name: eks-demo-deployment
+#          requires: [ build_and_push_image]
+#      - create-service:
+#          cluster-name: eks-demo-deployment
+#          requires:
+#            - create-small-cluster
       - create-deployment:
           cluster-name: eks-demo-deployment
           requires:
