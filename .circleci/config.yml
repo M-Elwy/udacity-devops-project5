@@ -54,6 +54,8 @@ jobs:
             fi
 
   build_and_push_image:
+    docker:
+      - image: docker:17.05.0-ce-git
     executor: aws-eks/python3
     steps:
       - aws-ecr/build-and-push-image:
