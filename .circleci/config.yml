@@ -52,6 +52,19 @@ jobs:
               return 1
             fi
 
+  build_and_push_image:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          context: myContext
+          create-repo: true
+          dockerfile: Dockerfile
+          no-output-timeout: 20m
+          path: ./
+          profile-name: elwy
+          repo: testblueimage
+          skip-when-tags-exist: false
+          tag: 'latest,myECRRepoTag'
+
   create-deployment:
     executor: aws-eks/python3
     parameters:
@@ -68,6 +81,7 @@ jobs:
           get-rollout-status: true
           resource-file-path: deployment.json
           resource-name: deployment/blue
+          show-kubectl-command: true
   create-service:
     executor: aws-eks/python3
     parameters:
@@ -117,9 +131,11 @@ workflows:
       - linting
       - build:
           requires: [linting]
+      - build_and_push_image:
+          requires: [build]
       - create-small-cluster:
           cluster-name: eks-demo-deployment
-          requires: [build]
+          requires: [ build_and_push_image]
       - create-service:
           cluster-name: eks-demo-deployment
           requires:
