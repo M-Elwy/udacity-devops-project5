@@ -2,28 +2,28 @@
     "kind":"Deployment",
     "apiVersion":"apps/v1",
     "metadata":{
-       "name":"blue",
+       "name":"green",
        "labels":{
-          "app":"blue"
+          "app":"green"
        }
     },
     "spec":{
        "replicas":1,
        "selector":{
           "matchLabels":{
-             "app":"blue"
+             "app":"green"
           }
        },
        "template":{
           "metadata":{
              "labels":{
-                "app":"blue"
+                "app":"green"
              }
           },
           "spec":{
              "containers":[
                 {
-                   "name":"blue",
+                   "name":"green",
                    "image":"667578938187.dkr.ecr.us-west-2.amazonaws.com/testblueimage",
                    "ports":[
                       {
