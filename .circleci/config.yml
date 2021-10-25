@@ -121,8 +121,8 @@ jobs:
           verbose: 3
           node-type: t3.small
           nodes-max: 2
-          ssh-access: false
-          ssh-public-key: ''
+          ssh-access: true
+          ssh-public-key: 'udacity'
 
 workflows:
   default:
@@ -132,20 +132,20 @@ workflows:
           requires: [linting]
       - build_and_push_image:
           requires: [build]
-#      - create-small-cluster:
-#          cluster-name: eks-demo-deployment
-#          requires: [ build_and_push_image]
-#      - create-service:
-#          cluster-name: eks-demo-deployment
-#          requires:
-#            - create-small-cluster
+      - create-small-cluster:
+          cluster-name: eks-demo-deployment
+          requires: [ build_and_push_image]
+      - create-service:
+          cluster-name: eks-demo-deployment
+          requires:
+            - create-small-cluster
       - create-deployment:
           cluster-name: eks-demo-deployment
-#          requires:
-#            - create-service
+          requires:
+            - create-service
       - aws-eks/update-container-image:
           cluster-name: eks-demo-deployment
-          container-image-updates: 'blue=elwy/testblueimage:latest'
+          container-image-updates: 'blue=667578938187.dkr.ecr.us-west-2.amazonaws.com/testblueimage:latest'
           record: true
           requires:
             - create-deployment
