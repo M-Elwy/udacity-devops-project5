@@ -61,7 +61,7 @@ jobs:
           dockerfile: Dockerfile
           no-output-timeout: 20m
           path: ./
-          profile-name: elwy
+          profile-name: admin
           repo: testblueimage
           skip-when-tags-exist: false
           tag: 'latest,myECRRepoTag'
