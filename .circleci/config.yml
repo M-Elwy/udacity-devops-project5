@@ -57,13 +57,7 @@ jobs:
     executor: aws-eks/python3
     steps:
       - aws-ecr/build-and-push-image:
-          create-repo: true
-          dockerfile: Dockerfile
-          no-output-timeout: 20m
-          path: ./
-          profile-name: admin
           repo: testblueimage
-          skip-when-tags-exist: false
           tag: 'latest,myECRRepoTag'
 
   create-deployment:
