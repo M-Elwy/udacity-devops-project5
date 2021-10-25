@@ -142,7 +142,7 @@ workflows:
       - create-deployment:
           cluster-name: eks-demo-deployment
           requires:
-            - create-service
+#            - create-service
       - aws-eks/update-container-image:
           cluster-name: eks-demo-deployment
           container-image-updates: 'blue=elwy/testblueimage:latest'
